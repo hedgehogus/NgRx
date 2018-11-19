@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter } from '@angular/core';
 import * as moment from 'moment';
 import { Car } from '../car.model'
+
 
 @Component({
   selector: 'app-cars-form',
@@ -13,6 +14,8 @@ export class CarsFormComponent implements OnInit {
 
   carName: string = '';
   carModel: string = '';
+
+  addCar = new EventEmitter<Car>();
 
   constructor() { }
 
@@ -30,6 +33,11 @@ export class CarsFormComponent implements OnInit {
       false,
       this.id
     )
+
+    this.addCar.emit(car);
+
+    this.carModel = '';
+    this.carName = '';
 
   }
 

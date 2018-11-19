@@ -6,11 +6,14 @@ import { Cars, Car } from './car.model'
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
   public cars: Car [] = [
     new Car('Ford', '12.12.12', 'Focus', false, 1),
     new Car('Audi', '08.08.12', 'A4', false, 2)
-  ];
-
+  ]; 
   
+  onAdd(car:Car){
+    this.cars.push(car);
+  }
 }
