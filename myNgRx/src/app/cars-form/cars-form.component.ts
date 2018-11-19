@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CarsFormComponent implements OnInit {
 
+  carName: string = '';
+  carModel: string = '';
+
   constructor() { }
 
   ngOnInit() {
