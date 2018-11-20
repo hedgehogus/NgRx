@@ -1,4 +1,4 @@
-import { Component,Input, OnInit } from '@angular/core';
+import { Component,Input, OnInit, Output,EventEmitter } from '@angular/core';
 import { Car } from '../car.model'
 
 @Component({
@@ -9,9 +9,17 @@ import { Car } from '../car.model'
 export class CarComponent {
 
   @Input() car: Car
+  @Output() deleteCar = new EventEmitter<Car>()
 
   constructor() { }
 
+  onDelete(){
+    this.deleteCar.emit(this.car);
+  }
+
+  onBuy(){
+    this.car.isSold = true;
+  }
   
 
 }
